@@ -1,0 +1,100 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #121212;
+    color: #ffffff;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Form Container */
+.form-container {
+    width: 400px;
+    padding: 30px;
+    background: rgba(34, 34, 34, 0.95);
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(255, 77, 77, 0.3);
+    text-align: center;
+    transition: transform 0.3s;
+    border-left: 5px solid #ff4d4d;
+}
+
+.form-container:hover {
+    transform: scale(1.03);
+}
+
+.form-container h1 {
+    margin-bottom: 20px;
+    color: #ff4d4d;
+    font-size: 24px;
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+label {
+    font-size: 16px;
+    text-align: left;
+    color: #ddd;
+    width: 100%;
+}
+
+input, select {
+    width: 90%;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    background: #2e2e2e;
+    color: white;
+    transition: 0.3s;
+    text-align: center;
+}
+
+input:focus, select:focus {
+    outline: 2px solid #ff4d4d;
+    background: #3a3a3a;
+}
+
+/* Button */
+.btn {
+    width: 95%;
+    background: linear-gradient(to right, #ff4d4d, #ff3333);
+    color: white;
+    padding: 14px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background: linear-gradient(to right, #ff3333, #e62e2e);
+    transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .form-container {
+        width: 90%;
+        padding: 20px;
+    }
+    input, select {
+        width: 100%;
+    }
+    .btn {
+        width: 100%;
+    }
+}

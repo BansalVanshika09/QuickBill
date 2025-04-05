@@ -1,0 +1,28 @@
+import networkx as nx
+import matplotlib.pyplot as plt
+
+# Create a directed graph
+G = nx.DiGraph()
+
+# Add nodes
+nodes = ['Source', 'A', 'B','C', 'Sink']
+G.add_nodes_from(nodes)
+
+# Add edges with weights (capacities)
+edges = [('Source', 'A', 10), ('A', 'B', 5),('B', 'C', 54), ('C', 'Sink', 15),('B','Sink',10),('A', 'C', 15)]
+G.add_weighted_edges_from(edges)
+
+# Draw the graph with fixed positions
+pos = pos = {
+    'Source': (0, 0),
+    'A': (1,4 ),
+    'B': (2, 0),
+    'C':(2,5),
+    'Sink': (3, 1)
+}  # Seed ensures consistent positions
+labels = nx.get_edge_attributes(G, 'weight')
+
+nx.draw(G, pos, with_labels=True, node_size=3000, node_color='blue', arrows=True)
+nx.draw_networkx_edge_labels(G, pos, edge_labels=labels)
+
+plt.show()

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename= ('app.css'))}}">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="{{ url_for ('static', filename='logo03.png') }}" alt="Logo" class="logo">
+        </div>
+        <nav class="navbar">
+            <a href="#about">About</a>
+            <a href="#purpose">Purpose</a>
+            <a href="#team">Team</a>
+            <a href="#contact">Contact</a>
+            <a href="{{url_for ('customer')}}">Customer</a>
+            <a href="{{url_for ('form')}}">Signup</a>
+        </nav>
+    </header>
+    <main>
+        <section id="about" class="section">
+            <h1>About Us</h1>
+            <p>QuickBill is revolutionizing retail payments with seamless transactions. We make shopping smooth, fast, and hassle-free.</p>
+        </section>
+        <section id="purpose" class="section">
+            <h1>Our Purpose</h1>
+            <p>Eliminating checkout queues through AI-driven transactions and smart integration, making payments effortless.</p>
+        </section>
+        <section id="team" class="section">
+            <h1>Meet the Team</h1>
+            <div class="team-container">
+                <div class="team-member">
+                    <img src="member01.jpg" alt="Vanshika">
+                    <h3>Vanshika</h3>
+                    <p>Front-End Developer</p>
+                </div>
+                <div class="team-member">
+                    <img src="member03.jpg" alt="Nishtha">
+                    <h3>Nishtha</h3>
+                    <p>Project Manager</p>
+                </div>
+                <div class="team-member">
+                    <img src="member01.jpg" alt="Khushboo">
+                    <h3>Khushboo</h3>
+                    <p>Backend Developer</p>
+                </div>
+                <div class="team-member">
+                    <img src="member04.jpg" alt="Rudraksh Khanna">
+                    <h3>Rudraksh Khanna</h3>
+                    <p>Developer Operations</p>
+                </div>
+            </div>
+        </section>
+        <section id="contact" class="section">
+            <h1>Contact Us</h1>
+            <p>Email: <a href="mailto:support@quickbill.com">support@quickbill.com</a></p>
+        </section>
+    </main>
+</body>
+</html>

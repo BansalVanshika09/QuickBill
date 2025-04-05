@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scan Barcode</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='customer.css') }}">
+</head>
+<body>
+    <img src="{{ url_for('static', filename='logo03.png') }}" alt="Logo" class="logo">
+    
+    <div class="container">
+        <!-- Scanned Items List -->
+        <div class="item-list">
+            <h3>Scanned Items</h3>
+            <ul id="itemList"></ul>
+        </div>
+
+        <!-- Scanner Section -->
+        <div class="scan-container">
+            <h2>Scan Your Item</h2>
+            <p>Place your barcode in front of the camera to scan.</p>
+            <div id="scanner">[Camera will be integrated here]</div>
+            <button onclick="finishProcess()">Finish</button>
+            <button onclick="scanNext()">Next</button>
+        </div>
+    </div>
+
+    <script>
+        function scanNext() {
+            fetch('/get_items')
+                .then(response => response.json())
+                .then(items => {
+                    let itemList = document.getElementById("itemList");
+                    itemList.innerHTML = "";
+                    items.forEach(item => {
+                        let li = document.createElement("li");
+                        li.textContent = `${item["Item Name"]} - $${item["Price"]}`;
+                        itemList.appendChild(li);
+                    });
+                });
+        }
+
+        function finishProcess() {
+            fetch('/checkout', { method: 'POST' })
+                .then(response => response.json())
+                .then(data => {
+                    alert(data.message);
+                    window.location.href = "{{ url_for('checkout_form') }}";  // Redirect to main page
+                });
+        }
+
+        // Load scanned items on page load
+        scanNext();
+    </script>
+</body>
+</html>
